@@ -16,7 +16,8 @@ Modern web teknolojileriyle geliştirilen, çok dilli ve yapay zeka destekli ASP
 - 🌐 LinkedIn & Twitter API entegrasyonu  
 - 📊 Canlı takipçi verisi ve sosyal medya analizleri
 
-<img width="1637" height="913" alt="Image" src="https://github.com/user-attachments/assets/f9fd4ac1-2947-48d2-be4a-529616d6b425" />
+<img width="1909" height="923" alt="Ekran görüntüsü 2025-07-20 045217" src="https://github.com/user-attachments/assets/bfafb28e-4493-4747-ae5f-105015eb42a6" />
+
 
 ## 🧠 AI Entegrasyonları
 
