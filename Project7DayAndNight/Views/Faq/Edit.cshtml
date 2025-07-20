@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2>Soru Düzenle</h2>
+    <form method="post" action="/Faq/Edit">
+        <input type="hidden" name="FaqId" value="@Model.FaqId" />
+        <div class="mb-3">
+            <label class="form-label">Soru</label>
+            <input type="text" class="form-control" name="question" value="@Model.question" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Açıklama</label>
+            <textarea class="form-control" name="description" rows="4" required>@Model.description</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Güncelle</button>
+        <a href="/Faq/Index" class="btn btn-secondary">Geri Dön</a>
+    </form>
+</div>

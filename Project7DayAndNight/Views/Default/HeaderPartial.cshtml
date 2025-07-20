@@ -1,0 +1,51 @@
+﻿@model Project7DayAndNight.Models.LınkedinViewModel
+@using Resources
+<div class="container-fluid topbar px-0 px-lg-4 bg-light py-2 d-none d-lg-block">
+    <div class="container">
+        <div class="row gx-0 align-items-center">
+            <div class="col-lg-8 text-center text-lg-start mb-lg-0">
+                <div class="d-flex flex-wrap">
+                    <div class="border-end border-primary pe-3">
+                        <a href="#" class="text-muted small"><i class="fas fa-map-marker-alt text-primary me-2"></i>@Resources.Lang.Location</a>
+                    </div>
+                    <div class="ps-3">
+                        <a href="mailto:ikagancevik@gmail.com" class="text-muted small"><i class="fas fa-envelope text-primary me-2"></i>ikagancevik@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-flex justify-content-end">
+                    @{
+                        var takipci = ViewBag.FollowersCount ?? 0;
+                    }
+
+                    <!-- Sadece LinkedIn takipçi sayısı -->
+                    <div class="d-flex justify-content-end">
+                        <div class="text-end">
+                            <span class="text-primary fw-bold">@Resources.Lang.Linkedin @takipci</span>
+                        </div>
+                    </div>
+                    <div class="dropdown ms-3">
+                        <a class="dropdown-toggle text-dark" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                            <small>
+                                <i class="fas fa-globe-europe text-primary me-2"></i> @Resources.Lang.Language
+                            </small>
+                        </a>
+                        <ul class="dropdown-menu rounded">
+                            <li>
+                                <a href="@Url.Action("Change", "Language", new { lang = "tr", returnUrl = Request.Url.PathAndQuery })" class="dropdown-item">Türkçe</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Change", "Language", new { lang = "fr-FR", returnUrl = Request.Url.PathAndQuery })" class="dropdown-item">Français</a>
+                            </li>
+                            <li>
+                                <a href="/Default/IndexEN/" class="dropdown-item">English</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

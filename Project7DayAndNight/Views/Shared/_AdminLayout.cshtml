@@ -1,0 +1,136 @@
+﻿
+@{
+    Layout = null;
+}
+
+@* AdminLayout.cshtml *@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Panel - Kağan Çevik</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: #f8f9fa;
+        }
+
+        .sidebar {
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #a3d9a5 0%, #dbe88f 33%, #fff9c4 66%, #ffd9b3 100%);
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            box-shadow: 2px 0 8px rgba(0,0,0,0.04);
+        }
+
+            .sidebar .logo {
+                display: flex;
+                align-items: center;
+                padding: 24px 16px 16px 16px;
+            }
+
+            .sidebar .logo-icon {
+                width: 40px;
+                height: 40px;
+                background: #fff;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.5rem;
+                color: #4caf50;
+                margin-right: 12px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            }
+
+            .sidebar .logo-text {
+                font-weight: bold;
+                font-size: 1.2rem;
+                color: #333;
+            }
+
+            .sidebar .nav-link {
+                color: #333;
+                font-weight: 500;
+                border-radius: 0 20px 20px 0;
+                margin: 4px 0;
+                padding: 10px 24px;
+                transition: background 0.2s, color 0.2s;
+            }
+
+                .sidebar .nav-link.active, .sidebar .nav-link:hover {
+                    background: #a3d9a5;
+                    color: #222;
+                }
+
+                .sidebar .nav-link i {
+                    margin-right: 8px;
+                }
+
+        .main-content {
+            margin-left: 250px;
+            min-height: 100vh;
+        }
+
+        .admin-navbar {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            padding: 0.5rem 2rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            height: 64px;
+        }
+
+            .admin-navbar .nav-link {
+                color: #333;
+                margin-left: 16px;
+                font-weight: 500;
+            }
+
+                .admin-navbar .nav-link i {
+                    margin-right: 6px;
+                }
+    </style>
+</head>
+<body>
+    <div class="sidebar d-flex flex-column">
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fa-solid fa-user-tie"></i>
+            </div>
+            <span class="logo-text">Kağan Çevik</span>
+        </div>
+        <nav class="nav flex-column mt-3">
+            <a class="nav-link active" href="#"><i class="fa-solid fa-circle-info"></i> Hakkımızda</a>
+            <a class="nav-link" href="#"><i class="fa-solid fa-list"></i> Kategoriler</a>
+            <a class="nav-link" href="#"><i class="fa-solid fa-question"></i> Sıkça Sorulan Sorular</a>
+            <a class="nav-link" href="/GenerateFaq/Index/"><i class="fa-solid fa-question"></i>  Soru Üret</a>
+            <a class="nav-link" href="#"><i class="fa-solid fa-star"></i> Özellikler</a>
+            <a class="nav-link" href="#"><i class="fa-solid fa-box"></i> Ürünler</a>
+            <a class="nav-link" href="#"><i class="fa-solid fa-briefcase"></i> Hizmetler</a>
+            <a class="nav-link" href="/Slider/Index/"><i class="fa-solid fa-images"></i> Slider</a>
+            <a class="nav-link" href="#"><i class="fa-solid fa-users"></i> Ekip</a>
+            <a class="nav-link" href="#"><i class="fa-solid fa-comment"></i> Referanslar</a>
+            <a class="nav-link" href="/Image/Generate/"><i class="fa-solid fa-images"></i> Görsel Üret</a>
+            <a class="nav-link" href="/Default/Index/" target="_blank"><i class="fa-solid fa-globe"></i> Web Sitesine Git</a>
+        </nav>
+    </div>
+    <div class="main-content">
+        <div class="admin-navbar">
+            <a class="nav-link" href="#"><i class="fa-solid fa-user"></i> Profil</a>
+            <a class="nav-link" href="#"><i class="fa-solid fa-right-from-bracket"></i> Çıkış</a>
+        </div>
+        <div class="container-fluid py-4">
+            @RenderBody()
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

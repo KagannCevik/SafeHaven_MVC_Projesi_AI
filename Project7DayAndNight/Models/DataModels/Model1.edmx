@@ -1,0 +1,448 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DayNightDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="SSS">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Question" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TblAbout">
+          <Key>
+            <PropertyRef Name="AboutId" />
+          </Key>
+          <Property Name="AboutId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AboutTitle" Type="varchar" MaxLength="50" />
+          <Property Name="AboutTitleCount" Type="smallint" />
+        </EntityType>
+        <EntityType Name="TblCategory">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblFaq">
+          <Key>
+            <PropertyRef Name="FaqId" />
+          </Key>
+          <Property Name="FaqId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="question" Type="varchar" MaxLength="250" />
+          <Property Name="description" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="TblFeatures">
+          <Key>
+            <PropertyRef Name="FeaturesId" />
+          </Key>
+          <Property Name="FeaturesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FeaturesTitle" Type="varchar" MaxLength="100" />
+          <Property Name="FeaturesDescription" Type="varchar" MaxLength="200" />
+          <Property Name="FeaturesIcon" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TblProduct">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductStok" Type="int" />
+          <Property Name="ProductStatus" Type="bit" />
+          <Property Name="CategoryId" Type="int" />
+        </EntityType>
+        <EntityType Name="TblServices">
+          <Key>
+            <PropertyRef Name="ServicesId" />
+          </Key>
+          <Property Name="ServicesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ServicesName" Type="varchar" MaxLength="50" />
+          <Property Name="ServicesDescription" Type="varchar" MaxLength="500" />
+          <Property Name="ServicesIcon" Type="varchar" MaxLength="200" />
+          <Property Name="ServicesImage" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="TblSlider">
+          <Key>
+            <PropertyRef Name="SliderId" />
+          </Key>
+          <Property Name="SliderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SliderTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="SliderSubTitle1" Type="nchar" MaxLength="50" />
+          <Property Name="SliderDescription" Type="varchar" MaxLength="500" />
+          <Property Name="SliderSubTitle2" Type="nvarchar" MaxLength="50" />
+          <Property Name="SliderImage" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="TblSliderEn">
+          <Key>
+            <PropertyRef Name="SliderEn" />
+          </Key>
+          <Property Name="SliderEn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="100" />
+          <Property Name="SubTitle" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="TblTeam">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="255" />
+          <Property Name="FacebookUrl" Type="nvarchar" MaxLength="255" />
+          <Property Name="TwitterUrl" Type="nvarchar" MaxLength="255" />
+          <Property Name="LinkedInUrl" Type="nvarchar" MaxLength="255" />
+          <Property Name="InstagramUrl" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="TblTestimonial">
+          <Key>
+            <PropertyRef Name="TestimonialId" />
+          </Key>
+          <Property Name="TestimonialId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameSurname" Type="varchar" MaxLength="50" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="Comment" Type="varchar" MaxLength="150" />
+          <Property Name="Images" Type="varchar" MaxLength="220" />
+        </EntityType>
+        <Association Name="FK_TblProduct_TblCategory">
+          <End Role="TblCategory" Type="Self.TblCategory" Multiplicity="0..1" />
+          <End Role="TblProduct" Type="Self.TblProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCategory">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="TblProduct">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DayNightDbModelStoreContainer">
+          <EntitySet Name="SSS" EntityType="Self.SSS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblAbout" EntityType="Self.TblAbout" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblCategory" EntityType="Self.TblCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblFaq" EntityType="Self.TblFaq" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblFeatures" EntityType="Self.TblFeatures" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblProduct" EntityType="Self.TblProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblServices" EntityType="Self.TblServices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblSlider" EntityType="Self.TblSlider" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblSliderEn" EntityType="Self.TblSliderEn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblTeam" EntityType="Self.TblTeam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblTestimonial" EntityType="Self.TblTestimonial" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TblProduct_TblCategory" Association="Self.FK_TblProduct_TblCategory">
+            <End Role="TblCategory" EntitySet="TblCategory" />
+            <End Role="TblProduct" EntitySet="TblProduct" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DayNightDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TblCategory">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TblProduct" Relationship="DayNightDbModel.FK_TblProduct_TblCategory" FromRole="TblCategory" ToRole="TblProduct" />
+        </EntityType>
+        <EntityType Name="TblProduct">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductStok" Type="Int32" />
+          <Property Name="ProductStatus" Type="Boolean" />
+          <Property Name="CategoryId" Type="Int32" />
+          <NavigationProperty Name="TblCategory" Relationship="DayNightDbModel.FK_TblProduct_TblCategory" FromRole="TblProduct" ToRole="TblCategory" />
+        </EntityType>
+        <EntityContainer Name="DayNightDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TblCategory" EntityType="Self.TblCategory" />
+          <EntitySet Name="TblProduct" EntityType="Self.TblProduct" />
+          <EntitySet Name="sysdiagrams" EntityType="DayNightDbModel.sysdiagrams" />
+          <AssociationSet Name="FK_TblProduct_TblCategory" Association="DayNightDbModel.FK_TblProduct_TblCategory">
+            <End Role="TblCategory" EntitySet="TblCategory" />
+            <End Role="TblProduct" EntitySet="TblProduct" />
+          </AssociationSet>
+          <EntitySet Name="TblSlider" EntityType="DayNightDbModel.TblSlider" />
+          <EntitySet Name="TblFeatures" EntityType="DayNightDbModel.TblFeatures" />
+          <EntitySet Name="TblAbout" EntityType="DayNightDbModel.TblAbout" />
+          <EntitySet Name="TblServices" EntityType="DayNightDbModel.TblServices" />
+          <EntitySet Name="TblFaq" EntityType="DayNightDbModel.TblFaq" />
+          <EntitySet Name="TblTeam" EntityType="DayNightDbModel.TblTeam" />
+          <EntitySet Name="TblTestimonial" EntityType="DayNightDbModel.TblTestimonial" />
+          <EntitySet Name="TblSliderEn" EntityType="DayNightDbModel.TblSliderEn" />
+          <EntitySet Name="SSS" EntityType="DayNightDbModel.SSS" />
+        </EntityContainer>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_TblProduct_TblCategory">
+          <End Type="DayNightDbModel.TblCategory" Role="TblCategory" Multiplicity="0..1" />
+          <End Type="DayNightDbModel.TblProduct" Role="TblProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCategory">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="TblProduct">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TblSlider">
+          <Key>
+            <PropertyRef Name="SliderId" />
+          </Key>
+          <Property Name="SliderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SliderTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SliderSubTitle1" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="SliderDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="SliderSubTitle2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SliderImage" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TblFeatures">
+          <Key>
+            <PropertyRef Name="FeaturesId" />
+          </Key>
+          <Property Name="FeaturesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FeaturesTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FeaturesDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FeaturesIcon" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TblAbout">
+          <Key>
+            <PropertyRef Name="AboutId" />
+          </Key>
+          <Property Name="AboutId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AboutTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AboutTitleCount" Type="Int16" />
+        </EntityType>
+        <EntityType Name="TblServices">
+          <Key>
+            <PropertyRef Name="ServicesId" />
+          </Key>
+          <Property Name="ServicesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ServicesName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ServicesDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ServicesIcon" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ServicesImage" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TblFaq">
+          <Key>
+            <PropertyRef Name="FaqId" />
+          </Key>
+          <Property Name="FaqId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="question" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TblTeam">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ImageUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FacebookUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TwitterUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LinkedInUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="InstagramUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TblTestimonial">
+          <Key>
+            <PropertyRef Name="TestimonialId" />
+          </Key>
+          <Property Name="TestimonialId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Comment" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Images" Type="String" MaxLength="220" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TblSliderEn">
+          <Key>
+            <PropertyRef Name="SliderEn" />
+          </Key>
+          <Property Name="SliderEn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SubTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SSS">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Question" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DayNightDbModelStoreContainer" CdmEntityContainer="DayNightDbEntities">
+          <EntitySetMapping Name="TblCategory">
+            <EntityTypeMapping TypeName="DayNightDbModel.TblCategory">
+              <MappingFragment StoreEntitySet="TblCategory">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblProduct">
+            <EntityTypeMapping TypeName="DayNightDbModel.TblProduct">
+              <MappingFragment StoreEntitySet="TblProduct">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="ProductStatus" ColumnName="ProductStatus" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductStok" ColumnName="ProductStok" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DayNightDbModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblSlider">
+            <EntityTypeMapping TypeName="DayNightDbModel.TblSlider">
+              <MappingFragment StoreEntitySet="TblSlider">
+                <ScalarProperty Name="SliderImage" ColumnName="SliderImage" />
+                <ScalarProperty Name="SliderSubTitle2" ColumnName="SliderSubTitle2" />
+                <ScalarProperty Name="SliderDescription" ColumnName="SliderDescription" />
+                <ScalarProperty Name="SliderSubTitle1" ColumnName="SliderSubTitle1" />
+                <ScalarProperty Name="SliderTitle" ColumnName="SliderTitle" />
+                <ScalarProperty Name="SliderId" ColumnName="SliderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblFeatures">
+            <EntityTypeMapping TypeName="DayNightDbModel.TblFeatures">
+              <MappingFragment StoreEntitySet="TblFeatures">
+                <ScalarProperty Name="FeaturesIcon" ColumnName="FeaturesIcon" />
+                <ScalarProperty Name="FeaturesDescription" ColumnName="FeaturesDescription" />
+                <ScalarProperty Name="FeaturesTitle" ColumnName="FeaturesTitle" />
+                <ScalarProperty Name="FeaturesId" ColumnName="FeaturesId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblAbout">
+            <EntityTypeMapping TypeName="DayNightDbModel.TblAbout">
+              <MappingFragment StoreEntitySet="TblAbout">
+                <ScalarProperty Name="AboutTitleCount" ColumnName="AboutTitleCount" />
+                <ScalarProperty Name="AboutTitle" ColumnName="AboutTitle" />
+                <ScalarProperty Name="AboutId" ColumnName="AboutId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblServices">
+            <EntityTypeMapping TypeName="DayNightDbModel.TblServices">
+              <MappingFragment StoreEntitySet="TblServices">
+                <ScalarProperty Name="ServicesImage" ColumnName="ServicesImage" />
+                <ScalarProperty Name="ServicesIcon" ColumnName="ServicesIcon" />
+                <ScalarProperty Name="ServicesDescription" ColumnName="ServicesDescription" />
+                <ScalarProperty Name="ServicesName" ColumnName="ServicesName" />
+                <ScalarProperty Name="ServicesId" ColumnName="ServicesId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblFaq">
+            <EntityTypeMapping TypeName="DayNightDbModel.TblFaq">
+              <MappingFragment StoreEntitySet="TblFaq">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="question" ColumnName="question" />
+                <ScalarProperty Name="FaqId" ColumnName="FaqId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblTeam">
+            <EntityTypeMapping TypeName="DayNightDbModel.TblTeam">
+              <MappingFragment StoreEntitySet="TblTeam">
+                <ScalarProperty Name="InstagramUrl" ColumnName="InstagramUrl" />
+                <ScalarProperty Name="LinkedInUrl" ColumnName="LinkedInUrl" />
+                <ScalarProperty Name="TwitterUrl" ColumnName="TwitterUrl" />
+                <ScalarProperty Name="FacebookUrl" ColumnName="FacebookUrl" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblTestimonial">
+            <EntityTypeMapping TypeName="DayNightDbModel.TblTestimonial">
+              <MappingFragment StoreEntitySet="TblTestimonial">
+                <ScalarProperty Name="Images" ColumnName="Images" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
+                <ScalarProperty Name="TestimonialId" ColumnName="TestimonialId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblSliderEn">
+            <EntityTypeMapping TypeName="DayNightDbModel.TblSliderEn">
+              <MappingFragment StoreEntitySet="TblSliderEn">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SubTitle" ColumnName="SubTitle" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="SliderEn" ColumnName="SliderEn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SSS">
+            <EntityTypeMapping TypeName="DayNightDbModel.SSS">
+              <MappingFragment StoreEntitySet="SSS">
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

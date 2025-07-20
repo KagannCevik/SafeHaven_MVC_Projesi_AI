@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-3">Sık Sorulan Sorular Listesi</h2>
+    <a class="btn btn-primary mb-3" href="/Faq/Create">Yeni Soru Ekle</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Soru</th>
+                <th>Açıklama</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.FaqId</td>
+                    <td>@item.question</td>
+                    <td>@item.description</td>
+                    <td>
+                        <a href="/Faq/Edit/@item.FaqId" class="btn btn-warning btn-sm">Düzenle</a>
+                        <a href="/Faq/Delete/@item.FaqId" class="btn btn-danger btn-sm">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

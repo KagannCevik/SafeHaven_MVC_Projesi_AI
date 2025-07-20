@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@model Project7DayAndNight.Models.DataModels.TblSlider
+
+<div class="container" style="max-width: 700px; margin-top: 40px;">
+    <div class="card shadow-sm">
+        <div class="card-header bg-success text-white">
+            <h4 class="mb-0">Slider Ekle</h4>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("Create", "Slider", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="mb-3">
+                    @Html.LabelFor(m => m.SliderTitle, new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.SliderTitle, new { @class = "form-control", required = "required", placeholder = "Başlık giriniz..." })
+                    @Html.ValidationMessageFor(m => m.SliderTitle, "", new { @class = "text-danger" })
+                </div>
+                <div class="mb-3">
+                    @Html.LabelFor(m => m.SliderSubTitle1, new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.SliderSubTitle1, new { @class = "form-control", required = "required", placeholder = "Alt başlık 1 giriniz..." })
+                    @Html.ValidationMessageFor(m => m.SliderSubTitle1, "", new { @class = "text-danger" })
+                </div>
+                <div class="mb-3">
+                    @Html.LabelFor(m => m.SliderDescription, new { @class = "form-label" })
+                    @Html.TextAreaFor(m => m.SliderDescription, new { @class = "form-control", required = "required", placeholder = "Açıklama giriniz...", rows = 3 })
+                    @Html.ValidationMessageFor(m => m.SliderDescription, "", new { @class = "text-danger" })
+                </div>
+                <div class="mb-3">
+                    @Html.LabelFor(m => m.SliderSubTitle2, new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.SliderSubTitle2, new { @class = "form-control", required = "required", placeholder = "Alt başlık 2 giriniz..." })
+                    @Html.ValidationMessageFor(m => m.SliderSubTitle2, "", new { @class = "text-danger" })
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Görsel (Zorunlu)</label>
+                    <input type="file" name="SliderImageFile" class="form-control" required accept="image/*" />
+                    <div class="form-text">En iyi sonuç için kare ve yüksek çözünürlüklü bir görsel seçin.</div>
+                    @if (ViewBag.ImageError != null)
+                    {
+                        <span class="text-danger">@ViewBag.ImageError</span>
+                    }
+                </div>
+                <div class="d-flex justify-content-between">
+                    <a href="@Url.Action("Index", "Slider")" class="btn btn-secondary">Geri Dön</a>
+                    <button type="submit" class="btn btn-success">Kaydet</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,190 @@
+﻿@model Project7DayAndNight.Models.DataModels.TblSliderEn
+<head>
+    <meta charset="utf-8">
+    <title>LifeSure - Life Insurance Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link rel="stylesheet" href="/LifeSure-1.0.0/lib/animate/animate.min.css" />
+    <link href="/LifeSure-1.0.0/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="/LifeSure-1.0.0/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/LifeSure-1.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="/LifeSure-1.0.0/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+    <!-- Topbar Start -->
+    <div class="container-fluid topbar px-0 px-lg-4 bg-light py-2 d-none d-lg-block">
+        <div class="container">
+            <div class="row gx-0 align-items-center">
+                <div class="col-lg-8 text-center text-lg-start mb-lg-0">
+                    <div class="d-flex flex-wrap">
+                        <div class="border-end border-primary pe-3">
+                            <a href="#" class="text-muted small"><i class="fas fa-map-marker-alt text-primary me-2"></i>Find A Location</a>
+                        </div>
+                        <div class="ps-3">
+                            <a href="mailto:example@gmail.com" class="text-muted small"><i class="fas fa-envelope text-primary me-2"></i>ikagancevik@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center text-lg-end">
+                    <div class="d-flex justify-content-end">
+                        <div class="d-flex border-end border-primary pe-3">
+                            <a class="btn p-0 text-primary me-3" href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn p-0 text-primary me-3" href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="btn p-0 text-primary me-3" href="#"><i class="fab fa-instagram"></i></a>
+                            <a class="btn p-0 text-primary me-0" href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                        <div class="dropdown ms-3">
+                            <a href="#" class="dropdown-toggle text-dark" data-bs-toggle="dropdown"><small><i class="fas fa-globe-europe text-primary me-2"></i> English</small></a>
+                            <div class="dropdown-menu rounded">
+                                <a href="#" class="dropdown-item">English</a>
+                                <a href="/Default/Index/" class="dropdown-item">Türkçe</a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid nav-bar px-0 px-lg-4 py-lg-0">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a href="#" class="navbar-brand p-0">
+                    <h1 class="text-primary mb-0"><i class="fab fa-slack me-2"></i> LifeSure</h1>
+                    <!-- <img src="img/logo.png" alt="Logo"> -->
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav mx-0 mx-lg-auto">
+                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <a href="about.html" class="nav-item nav-link">About</a>
+                        <a href="service.html" class="nav-item nav-link">Services</a>
+                        <a href="blog.html" class="nav-item nav-link">Blog</a>
+                        
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <div class="nav-btn px-3">
+                            <button class="btn-search btn btn-primary btn-md-square rounded-circle flex-shrink-0" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
+                            <a href="#" class="btn btn-primary rounded-pill py-2 px-4 ms-3 flex-shrink-0"> Get a Quote</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-none d-xl-flex flex-shrink-0 ps-4">
+                    <a href="#" class="btn btn-light btn-lg-square rounded-circle position-relative wow tada" data-wow-delay=".9s">
+                        <i class="fa fa-phone-alt fa-2x"></i>
+                        <div class="position-absolute" style="top: 7px; right: 12px;">
+                            <span><i class="fa fa-comment-dots text-secondary"></i></span>
+                        </div>
+                    </a>
+                    <div class="d-flex flex-column ms-3">
+                        <span>Call to Our Experts</span>
+                        <a href="tel:+ 0123 456 7890"><span class="text-dark">Free: + 0123 456 7890</span></a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar & Hero End -->
+    <!-- Modal Search Start -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content rounded-0">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex align-items-center bg-primary">
+                    <div class="input-group w-75 mx-auto d-flex">
+                        <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                        <span id="search-icon-1" class="btn bg-light border nput-group-text p-3"><i class="fa fa-search"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Search End -->
+    <!-- Carousel Start -->
+    <div class="header-carousel owl-carousel">
+        <div class="header-carousel-item bg-primary">
+            <div class="carousel-caption">
+                <div class="container">
+                    <div class="row g-4 align-items-center">
+                        <div class="col-lg-7 animated fadeInLeft">
+                            <div class="text-sm-center text-md-start">
+                                <h4 class="text-white text-uppercase fw-bold mb-4">@Model.Title</h4>
+                                <h1 class="display-1 text-white mb-4">@Model.SubTitle</h1>
+                                <p class="mb-5 fs-5">
+                                    @Model.Description
+                                </p>
+                                <div class="d-flex justify-content-center justify-content-md-start flex-shrink-0 mb-4">
+                                    <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="#"><i class="fas fa-play-circle me-2"></i> Watch Video</a>
+                                    <a class="btn btn-dark rounded-pill py-3 px-4 px-md-5 ms-2" href="#">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 animated fadeInRight">
+                            <div class="calrousel-img" style="object-fit: cover;">
+                                <img src="img/carousel-2.png" class="img-fluid w-100" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-carousel-item bg-primary">
+            <div class="carousel-caption">
+                <div class="container">
+                    <div class="row gy-4 gy-lg-0 gx-0 gx-lg-5 align-items-center">
+                        <div class="col-lg-5 animated fadeInLeft">
+                            <div class="calrousel-img">
+                                <img src="img/carousel-2.png" class="img-fluid w-100" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-7 animated fadeInRight">
+                            <div class="text-sm-center text-md-end">
+                                <h4 class="text-white text-uppercase fw-bold mb-4">Welcome To LifeSure</h4>
+                                <h1 class="display-1 text-white mb-4">Life Insurance Makes You Happy</h1>
+                                <p class="mb-5 fs-5">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy...
+                                </p>
+                                <div class="d-flex justify-content-center justify-content-md-end flex-shrink-0 mb-4">
+                                    <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="#"><i class="fas fa-play-circle me-2"></i> Watch Video</a>
+                                    <a class="btn btn-dark rounded-pill py-3 px-4 px-md-5 ms-2" href="#">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

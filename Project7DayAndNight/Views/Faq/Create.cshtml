@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2>Yeni Soru Ekle</h2>
+    <form method="post" action="/Faq/Create">
+        <div class="mb-3">
+            <label class="form-label">Soru</label>
+            <input type="text" class="form-control" name="question" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Açıklama</label>
+            <textarea class="form-control" name="description" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Kaydet</button>
+        <a href="/Faq" class="btn btn-secondary">Geri Dön</a>
+    </form>
+</div>

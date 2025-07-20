@@ -1,0 +1,47 @@
+﻿@model List<Project7DayAndNight.Models.DataModels.TblFaq>
+
+<div class="container-fluid faq-section bg-light py-5">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.2s">
+                <div class="h-100">
+                    <div class="mb-5">
+                        <h4 class="text-primary">Sık Sorulan Sorular (SSS)</h4>
+                        <h1 class="display-4 mb-0">En Çok Merak Edilenler</h1>
+                    </div>
+                    <div class="accordion" id="accordionExample">
+                        @for (int i = 0; i < Model.Count; i++)
+                        {
+                            var item = Model[i];
+                            string headingId = $"heading{i}";
+                            string collapseId = $"collapse{i}";
+                            bool isFirst = i == 0;
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="@headingId">
+                                    <button class="accordion-button border-0 @(isFirst ? "" : "collapsed")" type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#@collapseId"
+                                            aria-expanded="@(isFirst.ToString().ToLower())"
+                                            aria-controls="@collapseId">
+                                        @item.question
+                                    </button>
+                                </h2>
+                                <div id="@collapseId"
+                                     class="accordion-collapse collapse @(isFirst ? "show" : "")"
+                                     aria-labelledby="@headingId"
+                                     data-bs-parent="#accordionExample">
+                                    <div class="accordion-body rounded">
+                                        @item.description
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.4s">
+                <img src="img/carousel-2.png" class="img-fluid w-100" alt="">
+            </div>
+        </div>
+    </div>
+</div>

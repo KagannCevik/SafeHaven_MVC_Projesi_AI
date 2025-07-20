@@ -1,0 +1,31 @@
+﻿@model Project7DayAndNight.Models.LınkedinViewModel
+@{
+    ViewBag.Title = "LinkedIn Profil Bilgileri";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container" style="max-width: 600px; margin-top: 40px;">
+    <div class="card border-0 shadow-lg">
+        <div class="card-header bg-gradient-success text-white d-flex align-items-center">
+            <i class="fab fa-linkedin fa-2x me-2"></i>
+            <h4 class="mb-0">LinkedIn Profil Bilgileri</h4>
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <span class="fw-bold text-secondary"><i class="fa fa-user me-2"></i>Kullanıcı Adı:</span>
+                <span class="ms-2">@Model.Username</span>
+            </div>
+            <div class="mb-3">
+                <span class="fw-bold text-secondary"><i class="fa fa-users me-2"></i>Takipçi Sayısı:</span>
+                <span class="ms-2">@Model.FollowersCount</span>
+            </div>
+            <div class="mb-3">
+                <span class="fw-bold text-secondary"><i class="fa fa-id-card me-2"></i>Public ID:</span>
+                <span class="ms-2">@Model.PublicIdentifier</span>
+            </div>
+            <a href="https://www.linkedin.com/in/@Model.PublicIdentifier" target="_blank" class="btn btn-success w-100 mt-3">
+                <i class="fab fa-linkedin me-2"></i> Profili Aç
+            </a>
+        </div>
+    </div>
+</div>

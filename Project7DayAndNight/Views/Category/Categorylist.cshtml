@@ -1,0 +1,22 @@
+﻿@model List<Project7DayAndNight.Models.DataModels.TblCategory>
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+    <br /><br />
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Kategori Adı</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CategoryId</td>
+                <td>@item.CategoryName</td>
+            </tr>
+        }
+    </table>
+    <a href="/Category/CreateCategory/" class="btn btn-primary">Yeni Kategori Girişi</a>
+</div>

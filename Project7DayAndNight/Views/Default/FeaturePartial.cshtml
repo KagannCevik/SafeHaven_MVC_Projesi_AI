@@ -1,0 +1,32 @@
+﻿@model List<Project7DayAndNight.Models.DataModels.TblFeatures>
+<div class="container-fluid feature bg-light py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+            <h4 class="text-primary">Özelliklerimiz</h4>
+            <h1 class="display-4 mb-4">Sigorta, Size Daha Güzel Bir Gelecek Sunar</h1>
+            <p class="mb-0">
+               
+                Lifesure olarak, hayatın belirsizliklerine karşı sizi ve sevdiklerinizi güvence altına alıyoruz. Esnek ve güvenilir sigorta çözümlerimizle, geleceğinize huzurla bakmanızı sağlıyoruz.
+            </p>
+        </div>
+        <div class="row g-4">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="feature-item p-4 pt-0">
+                        <div class="feature-icon p-4 mb-4">
+                            <i class="@item.FeaturesIcon"></i>
+                        </div>
+                        <h4 class="mb-4">@item.FeaturesTitle</h4>
+                        <p class="mb-4">
+                           @item.FeaturesDescription
+                        </p>
+                        <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Detaylı Bilgi</a>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+    </div>
+</div>

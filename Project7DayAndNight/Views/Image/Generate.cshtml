@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Generate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model Project7DayAndNight.Models.PromtViewModel
+
+<div class="container" style="max-width: 600px; margin-top: 40px;">
+    <div class="card shadow-sm">
+        <div class="card-header bg-success text-white">
+            <h4 class="mb-0"><i class="fa-solid fa-image"></i> Prompt'a Göre Görsel Üret </h4>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("Generate", "Image", FormMethod.Post))
+            {
+                <div class="mb-3">
+                    @Html.LabelFor(m => m.Prompt, new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.Prompt, new { @class = "form-control", placeholder = "Bir sahne veya kelime gir..." })
+                </div>
+                <button type="submit" class="btn btn-success w-100"><i class="fa-solid fa-wand-magic-sparkles"></i> Görsel Üret</button>
+            }
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.ImageBase64))
+    {
+        <div class="card mt-4 shadow-sm">
+            <div class="card-header bg-warning">
+                <h5 class="mb-0"><i class="fa-solid fa-image"></i> Üretilen Görsel</h5>
+            </div>
+            <div class="card-body text-center">
+                <img src="data:image/png;base64,@Model.ImageBase64" class="img-thumbnail img-fluid" style="max-width: 400px; height: auto;" />
+            </div>
+        </div>
+    }
+</div> 

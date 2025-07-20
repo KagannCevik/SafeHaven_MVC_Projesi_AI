@@ -1,0 +1,50 @@
+﻿@model List<Project7DayAndNight.Models.DataModels.TblAbout>
+<div class="container-fluid bg-light about pb-5">
+    <div class="container pb-5">
+        <div class="row g-5">
+            <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.2s">
+                <div class="about-item-content bg-white rounded p-5 h-100">
+                    <h4 class="text-primary">Şirketimiz Hakkında</h4>
+                    <h1 class="display-4 mb-4">Geniş Kapsamlı Koruma Çözümleri</h1>
+                    <p>
+                        Lifesure olarak, hayatın beklenmedik zorluklarına karşı sizi ve sevdiklerinizi güvence altına alıyoruz. 20 yılı aşan deneyimimiz ve uzman ekibimizle, ihtiyaçlarınıza özel çözümler sunuyoruz. Yenilikçi sigorta ürünlerimizle, geleceğinize güvenle bakmanızı sağlıyoruz.
+
+
+                    </p>
+                    <p>
+                        Neden Bizi Tercih Etmelisiniz?
+                    </p>
+                    <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Tasarrufunuzu Güvence Altına Alıyoruz</p>
+                    <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Kaliteli Hizmet ve Ürünler</p>
+                    <p class="text-dark mb-4"><i class="fa fa-check text-primary me-3"></i>Esnek Hayat Sigortası Paketleri</p>
+                    <a class="btn btn-primary rounded-pill py-3 px-5" href="#">Daha Fazla Bilgi</a>
+                </div>
+            </div>
+            <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.2s">
+                <div class="bg-white rounded p-5 h-100">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-12">
+                            <div class="rounded bg-light">
+                                <img src="/LifeSure-1.0.0/img/about-1.png" class="img-fluid rounded w-100" alt="">
+                            </div>
+                        </div>
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-sm-6">
+                                <div class="counter-item bg-light rounded p-3 h-100">
+                                    <div class="counter-counting">
+                                        <span class="text-primary fs-2 fw-bold" data-toggle="counter-up">@item.AboutTitleCount</span>
+                                        <span class="h1 fw-bold text-primary">+</span>
+                                    </div>
+                                    <h4 class="mb-0 text-dark">@item.AboutTitle</h4>
+                                </div>
+                            </div>
+                        }
+
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

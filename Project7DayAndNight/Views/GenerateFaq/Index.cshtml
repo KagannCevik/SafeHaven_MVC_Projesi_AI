@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Sık Sorulan Sorular Üret";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container" style="max-width: 700px; margin-top: 40px;">
+    <div class="card shadow-sm">
+        <div class="card-header bg-success text-white">
+            <h4 class="mb-0"><i class="fa-solid fa-circle-question me-2"></i> Sık Sorulan Sorular Üret</h4>
+        </div>
+        <div class="card-body">
+            <form method="post" class="mb-4">
+                <div class="mb-3">
+                    <label for="promptInput" class="form-label">Prompt Giriniz:</label>
+                    <input type="text" name="prompt" id="promptInput" class="form-control" placeholder="Örn: Sigorta hakkında sık sorulan 3 soru üret." required />
+                </div>
+                <button type="submit" class="btn btn-success w-100">
+                    <i class="fa-solid fa-bolt"></i> Soru Üret
+                </button>
+            </form>
+
+            @if (ViewBag.Questions != null && (ViewBag.Questions as List<string>).Any())
+            {
+                <div class="row">
+                    @foreach (var q in ViewBag.Questions as List<string>)
+                    {
+                        <div class="col-md-12">
+                            <div class="card mb-3 border-success">
+                                <div class="card-body">
+                                    <h5 class="card-title text-success">
+                                        <i class="fa-solid fa-circle-question me-2"></i> Soru
+                                    </h5>
+                                    <p class="card-text">@q</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-warning mt-3">Henüz bir soru oluşturulmadı.</div>
+            }
+
+            <hr />
+            <h6 class="text-muted">Ham Yanıt (debug):</h6>
+            <pre class="bg-light p-2 rounded">@Html.Raw(ViewBag.RawText)</pre>
+        </div>
+    </div>
+</div>

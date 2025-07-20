@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "CreateFeature";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@model Project7DayAndNight.Models.DataModels.TblFeatures
+
+<div class="container" style="max-width: 600px; margin-top: 40px;">
+    <div class="card shadow-sm">
+        <div class="card-header bg-success text-white">
+            <h4 class="mb-0">Özellik Ekle</h4>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("Create", "Features", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="mb-3">
+                    @Html.LabelFor(m => m.FeaturesTitle, new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.FeaturesTitle, new { @class = "form-control", required = "required", placeholder = "Başlık giriniz..." })
+                    @Html.ValidationMessageFor(m => m.FeaturesTitle, "", new { @class = "text-danger" })
+                </div>
+                <div class="mb-3">
+                    @Html.LabelFor(m => m.FeaturesDescription, new { @class = "form-label" })
+                    @Html.TextAreaFor(m => m.FeaturesDescription, new { @class = "form-control", required = "required", placeholder = "Açıklama giriniz...", rows = 3 })
+                    @Html.ValidationMessageFor(m => m.FeaturesDescription, "", new { @class = "text-danger" })
+                </div>
+                <div class="mb-3">
+                    @Html.LabelFor(m => m.FeaturesIcon, new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.FeaturesIcon, new { @class = "form-control", required = "required", placeholder = "Icon giriniz..." })
+                </div>
+                <div class="d-flex justify-content-between">
+                    <a href="@Url.Action("Index", "Features")" class="btn btn-secondary">Geri Dön</a>
+                    <button type="submit" class="btn btn-success">Kaydet</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

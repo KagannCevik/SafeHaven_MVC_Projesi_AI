@@ -1,0 +1,32 @@
+﻿@model List<Project7DayAndNight.Models.DataModels.TblProduct>
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+    <br /><br />
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Ürün Adı</th>
+            <th>Ürün Stok</th>
+            <th>Ürün Durum</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ProductId</td>
+                <td>@item.ProductName</td>
+                <td>@item.ProductStok</td>
+                <td>@item.ProductStatus</td>
+                <td><a href="/Product/DeleteProduct/@item.ProductId" class="btn btn-danger">Ürün Sil</a></td>
+                <td><a href="/Product/UpdateProduct/@item.ProductId" class="btn btn-success">Ürün Güncelle</a></td>
+                
+            </tr>
+        }
+    </table>
+    <a href="/Product/CreateProduct/" class="btn btn-primary">Yeni Ürün Girişi</a>
+</div>
