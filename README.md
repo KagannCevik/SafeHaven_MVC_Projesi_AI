@@ -139,4 +139,9 @@ Modern web teknolojileriyle geliştirilen, çok dilli ve yapay zeka destekli ASP
 
 
 
+<img width="1914" height="912" alt="Ekran görüntüsü 2025-07-20 043310" src="https://github.com/user-attachments/assets/9030b062-e103-46d8-894f-577f104f636d" />
+
+
+
+
 <img width="1915" height="910" alt="Ekran görüntüsü 2025-07-20 042024" src="https://github.com/user-attachments/assets/5988efab-0b52-4228-abd8-85897aeb9cf8" />
